@@ -4,23 +4,17 @@ import { HomePage } from './pages/Home'
 import { SearchPage } from './pages/Search'
 import { NotFoundPage } from './pages/404'
 import { useRouter } from './hooks/useRouter'
-
+import { Route } from './components/Route'
 
 
 function App() {
-  const {currentPath} = useRouter()
-  let page = <NotFoundPage/>
-  if (currentPath === '/'){
-    page = <HomePage/>
-  }else if (currentPath === '/search'){
-    page= <SearchPage/>
-  }
-
+    
  
   return (
     <div>
       <Header/>
-      {page}
+      <Route path="/" component={HomePage} />
+      <Route path ="/search" component={SearchPage}/>
      <Footer/>
     </div>
   )
