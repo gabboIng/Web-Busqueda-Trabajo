@@ -1,11 +1,10 @@
+import { useState } from "react"
 import { useId } from "react"
-function SearchFormSection ({onTextFilter,onSearch}){
-    const idText = useId()
-    const idTechnology = useId()
-    const idLocation = useId()
-    const idExperienceLevel = useId()
 
-    const handleSubmit = (event) => {
+
+const userSearchForm = ({idTechnology, idLocation, idExperienceLevel, onSearch, onTextFilter}) => {
+  const [searchText,setSearchText] =  useState("")
+  const handleSubmit = (event) => {
       event.preventDefault()
       const formData = new FormData(event.currentTarget)
 
@@ -20,8 +19,23 @@ function SearchFormSection ({onTextFilter,onSearch}){
 
     const handleTextChange = (event) => {
       const text = event.target.value
+      setSearchText(text)
       onTextFilter(text)
     }
+    return {
+      searchText,
+      handleSubmit,
+      handleTextChange
+    }
+}
+export function SearchFormSection ({onTextFilter,onSearch}){
+    const idText = useId()
+    const idTechnology = useId()
+    const idLocation = useId()
+    const idExperienceLevel = useId()
+
+    const {searchText,handleSubmit,handleTextChange} = userSearchForm({idTechnology,idLocation,
+      idExperienceLevel, onSearch,onTextFilter })
 
     return <section className="jobs-search">
         <h1>Encuentra tu próximo trabajo</h1>
