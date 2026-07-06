@@ -5,6 +5,7 @@ import { SearchPage } from './pages/Search'
 import { NotFoundPage } from './pages/404'
 import { useRouter } from './hooks/useRouter'
 import { Route } from './components/Route'
+import { Contact } from './pages/Contact'
 
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
       <Header/>
       <Route path="/" component={HomePage} />
       <Route path ="/search" component={SearchPage}/>
+      <Route path="/contact" component={Contact} />
      <Footer/>
     </div>
   )
