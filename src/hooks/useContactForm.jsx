@@ -40,7 +40,9 @@ export function useContactForm(){
             Swal.fire({
                 icon: 'success',
                 title: 'Enviado!',
-                text: "Formulario enviado con exito"
+                text: "Formulario enviado con exito",
+                background : '#0a3d66',
+                color : 'white'
             })
             setForm({nombre : "",email :"",mensaje :"" })
             setErrors({})

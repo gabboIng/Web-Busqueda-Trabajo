@@ -2,7 +2,7 @@ import { useState } from "react"
 import { useId } from "react"
 
 
-const userSearchForm = ({idTechnology, idLocation, idExperienceLevel, onSearch, onTextFilter}) => {
+const useSearchForm = ({idTechnology, idLocation, idExperienceLevel, onSearch, onTextFilter}) => {
   const [searchText,setSearchText] =  useState("")
   const handleSubmit = (event) => {
       event.preventDefault()
@@ -34,14 +34,14 @@ export function SearchFormSection ({onTextFilter,onSearch}){
     const idLocation = useId()
     const idExperienceLevel = useId()
 
-    const {searchText,handleSubmit,handleTextChange} = userSearchForm({idTechnology,idLocation,
+    const {searchText,handleSubmit,handleTextChange} = useSearchForm({idTechnology,idLocation,
       idExperienceLevel, onSearch,onTextFilter })
 
     return <section className="jobs-search">
         <h1>Encuentra tu próximo trabajo</h1>
         <p>Explora miles de oportunidades en el sector tecnológico.</p>
 
-        <form onChange={handleSubmit}  role="search">
+        <form className="search-form" onChange={handleSubmit}  role="search">
           <div className="search-bar">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
               stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"

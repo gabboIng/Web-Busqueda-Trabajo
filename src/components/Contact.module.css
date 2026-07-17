@@ -1,0 +1,131 @@
+.contact {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - 60px);
+  padding: 2rem;
+  font-family: system-ui;
+
+  /* La tarjeta contenedora blanca/oscura */
+  div {
+    max-width: 600px; /* Reducido un poco para que no quede tan estirado */
+    width: 100%;
+    background: var(--card-bg); /* Color de fondo */
+    padding: 2.5rem;
+    border-radius: 0.8rem;
+    text-align: left;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  }
+
+  h1 {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    color: var(--text-color);
+  }
+
+  p {
+    margin-bottom: 1.5rem;
+    color: var(--text-muted);
+  }
+
+  /* El formulario */
+  form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem; /* Espacio cómodo entre campos */
+  }
+
+  /* Contenedor de cada Label + Input */
+  .formGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    width: 100%;
+  }
+
+  label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-color);
+  }
+
+  /* Estilos para Inputs y Textarea */
+  input, textarea {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid var(--border-color);
+    border-radius: 0.4rem;
+    background: var(--background);
+    color:var(--text-primary);
+    font-size: 1rem;
+    transition: border-color 0.2s ease;
+    box-sizing: border-box; /* Evita que el padding rompa el ancho */
+
+    &:focus {
+      outline: none;
+      border-color: var(--accent-color); /* Color de enfoque */
+    }
+  }
+
+  textarea {
+    resize: vertical; /* Permite estirar solo hacia abajo */
+  }
+
+  
+  .buttonContact{
+padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  background-color:var(--primary-hover) ;
+  
+  font-weight: 400;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-family: inherit;
+  font-size: 1rem;
+  white-space: nowrap;
+
+  &:hover, /* pseudo-clase que significa que el ratón está encima */
+  &:focus { /* pseudo-clase que significa que el elemento tiene el foco */
+    background-color: var(--primary-light);
+    outline: 2px solid white;
+    outline-offset: 2px;
+  }
+  }
+
+
+  /* ======================================================= */
+  /*  ZONA RESPONSIVA: Pantallas de móviles (menos de 600px)  */
+  /* ======================================================= */
+  @media (max-width: 600px) {
+    padding: 1rem; /* Reducimos el margen externo para ganar espacio de pantalla */
+    min-height: calc(100vh - 80px); /* Ajuste por si el navbar móvil es más alto */
+
+    div {
+      padding: 1.5rem; /* Menos espacio interno en la tarjeta para que quepa bien el texto */
+      border-radius: 0.6rem; /* Bordes ligeramente más finos acordes al tamaño */
+    }
+
+    h1 {
+      font-size: 1.8rem; /* Reducimos un poco el título */
+    }
+
+    p {
+      font-size: 0.9rem;
+      margin-bottom: 1.2rem;
+    }
+
+    form {
+      gap: 1rem; /* Inputs ligeramente más juntos */
+    }
+
+    input, textarea, .submitBtn {
+      padding: 0.7rem; /* Reducción milimétrica de inputs para pantallas chicas sin perder usabilidad táctil */
+      font-size: 0.95rem; 
+    }
+  }
+}
+  
+
